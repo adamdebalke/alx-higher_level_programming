@@ -1,29 +1,55 @@
 #!/usr/bin/python3
-"""Define a class Square."""
-class Square:
-    """Represent a square."""
+"""Documentation for a square class"""
 
-    def __init__(self, __size=0):
-        """Initialize a new square.
 
+class Square():
+    """Square class for quadrilateral with four equal sides"""
+
+    def __init__(self, size=0):
+        """Sets the size of the square on instantiation
+           Throws an error if the size passed in is not an integer
         Args:
-            __size (int): The __size of the new square.
+            size (int, optional): the size of the square object
+        Raises:
+            TypeError: When the value passed in is not an integer
+            ValueError: When the value passed in is less than 0
         """
-        self.__size = __size
+        if not isinstance(size, int):
+            raise TypeError("size must be an integer")
+        elif size < 0:
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = size
 
     @property
     def size(self):
-        """Get/set the current __size of the square."""
-        return (self.__size)
+        """Returns the current size of the object
+           If called with a value, the setter function overwrites the
+           current size with the size passed in
+        Returns:
+            size of the current object
+        """
+        return self.__size
 
     @size.setter
     def size(self, value):
+        """Resets the size of the object with the value called
+        Args:
+            value (int): the new size of the square object
+        Raises:
+            TypeError: When the value passed in is not an integer
+            ValueError: When the value passed in is less than 0
+        """
         if not isinstance(value, int):
-            raise TypeError("__size must be an integer")
+            raise TypeError("size must be an integer")
         elif value < 0:
-            raise ValueError("__size must be >= 0")
-        self.__size = value
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = value
 
     def area(self):
-        """Return the current area of the square."""
-        return (self.__size * self.__size)
+        """Returns the area of the current square object
+        Returns:
+            the area of the current square object
+        """
+        return self.__size ** 2
