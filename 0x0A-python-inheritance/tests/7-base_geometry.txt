@@ -1,0 +1,81 @@
+The ```7-base_geometry``` module
+
+======================================
+
+Using ```base_geometry```
+______________________________________
+
+
+This is an example txt file in restructured text format
+First import ```base_geometry``` from the ```7-base_geometry``` module:
+
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+
+Check the module of docstring
+>>> a = __import__('7-base_geometry').BaseGeometry
+>>> len(a) > 1
+Traceback (most recent call last):
+...
+TypeError: object of type 'type' has no len()
+
+
+Check the class docstring
+>>> b = __import__("7-base_geometry").BaseGeometry.__doc__
+>>> len(b) > 1
+True
+
+
+Check the area method docstring
+>>> c = __import__("7-base_geometry").BaseGeometry.area.__doc__
+>>> len(c) > 1
+True
+
+
+Check the integer_validator docstring
+>>> d = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+>>> len(d) > 1
+True
+
+
+Check with de argumet is integer
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("my_int", 12)
+
+
+Check with the argument is empty
+>>> test1 = BaseGeometry()
+>>> test1.integer_validator()
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+
+Check with the argument is another data type
+>>> test2 = BaseGeometry()
+>>> test2.integer_validator("Tuple", (1, 2))
+Traceback (most recent call last):
+...
+TypeError: Tuple must be an integer
+
+
+Check if the firts argument is a integer
+>>> test3 = BaseGeometry()
+>>> test3.integer_validator(3, 4)
+
+
+Check if the value argumet is a negative
+>>> test4 = BaseGeometry()
+>>> test4.integer_validator("leng", -5)
+Traceback (most recent call last):
+...
+ValueError: leng must be greater than 0
+
+
+Check if the vlaue argument is float
+>>> test5 = BaseGeometry()
+>>> test5.integer_validator("size", 3.15)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
