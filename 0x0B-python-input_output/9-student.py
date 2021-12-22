@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""Defiens a student class
-that have to_json public method"""
+"""Defiens a student class that have to_json public method"""
+
 
 class Student:
    """a class for a student
