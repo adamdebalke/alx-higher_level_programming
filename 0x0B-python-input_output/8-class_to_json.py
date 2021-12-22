@@ -1,9 +1,8 @@
-#!/usr/bin/pythhon3
-#8-class_to_json.py
-""" returns a json representation of an object"""
+#!/usr/bin/python3
+# 8-class_to_json.py
+"""Defines a Python class-to-JSON function"""
 
 
 def class_to_json(obj):
-    """returns a json representation of
-    the obj object"""
+    """Return the dictionary represntation of a simple data structure."""
     return obj.__dict__
