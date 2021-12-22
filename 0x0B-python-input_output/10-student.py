@@ -35,7 +35,3 @@ class Student:
                json_dic[key] = self.__dict__[key]
 
        return json_dic
-
-
-
-
