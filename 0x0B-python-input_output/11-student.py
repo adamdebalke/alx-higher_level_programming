@@ -1,48 +1,43 @@
-#!/usr/bin/pyton3
-"""Defiantion for a student class
-"""
+#!/usr/bin/python3
+"""Definition of Student class"""
 
 
 class Student:
-   """a class for a student
-   """
-
-   def __init__(self, first_name, last_name, age):
-       """Initalizes a student object
-       """
-
-       self.first_name = first_name
-       self.last_name = last_name
-       self.age = age
-
-   def to_json(self, attrs=None):
-       """returns a json representatiion of
-       the object
-       """
-
-       if attrs != None and not isinstance(attrs, list):
-           raise TypeError("attrs must me a list of strings")
-
-       if attrs != None and any(not isinstance(attr, str) for attr in attrs):
-           raise TypeError("attrs must me a list of strings")
-
-       if attrs == None:
-           return self.__dict__
-
-       json_dic = {}
-       for key in attrs:
-           if key in self.__dict__.keys():
-               json_dic[key] = self.__dict__[key]
-
-       return json_dic
-
-    def relod_from_json(self, json):
-    """replaces object's attributes
+    """Definition of the class Student.
+    Attributes:
+        first_name: The first name
+        last_name: The last name
+        age: the age
+    Args:
+        first_name: First name argument
+        last_name: Last name argument
+        age: Age argument
     """
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
 
-        for k, v in json.items():
-            setattr(self, k, v)
+    def to_json(self, attrs=None):
+        """retrieves a dictionary representation of a Student instance.
+        If attrs is a list of strings, only attribute names contained
+        in this list must be retrieved, otherwise all attributes
+        must be retrieved.
+        """
+        if attrs is None:
+            return self.__dict__
+        new_dict = {}
+        for a in attrs:
+            try:
+                new_dict[a] = self.__dict__[a]
+            except Exception:
+                pass
+        return new_dict
 
-
-
-
+    def reload_from_json(self, json):
+        """replaces all attributes of the Student instance."""
+        for key in json:
+            try:
+                setattr(self, key, json[key])
+            except Exception:
+                pass
