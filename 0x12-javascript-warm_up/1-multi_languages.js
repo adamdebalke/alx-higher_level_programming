@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// JS script
+ // JS script
 
 console.log('C is fun');
 console.log('Python is cool');
