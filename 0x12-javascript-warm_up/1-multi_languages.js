@@ -1,6 +1,6 @@
 #!/usr/bin/node
- // JSscript
 
-console.log('C is fun');
-console.log('Python is cool');
-console.log('Javascript is amazing');
+// Script that prints C is fun,Python is cool and JavaScript is amazing.
+
+const myVar = 'C is fun\nPython is cool\nJavaScript is amazing';
+console.log(myVar);
