@@ -3,5 +3,3 @@ $.getJSON("https://swapi-api.hbtn.io/api/films/?format=json", function(data) {
 	{ $( "#list_movies" ).prepend("<li>" + this['title'] + "</li>")
 });
 });
-
-
